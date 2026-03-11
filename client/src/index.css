@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Moroccan Wedding Palette: Gold, Emerald, Royal Blue, Cream */
+  --background: 40 33% 98%; /* Warm Cream */
+  --foreground: 220 20% 15%; /* Dark Charcoal */
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 20% 15%;
+  
+  --primary: 43 74% 49%; /* Moroccan Gold */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 165 49% 25%; /* Deep Emerald */
+  --secondary-foreground: 0 0% 100%;
+  
+  --muted: 40 20% 92%;
+  --muted-foreground: 25 10% 45%;
+  
+  --accent: 215 50% 23%; /* Royal Blue */
+  --accent-foreground: 0 0% 100%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 43 30% 85%;
+  --input: 43 30% 90%;
+  --ring: 43 74% 49%;
+  
+  --radius: 0.75rem;
+
+  --font-display: 'Cinzel', serif;
+  --font-body: 'Lato', sans-serif;
+  --font-arabic: 'Amiri', serif;
+}
+
+.dark {
+  --background: 220 20% 10%;
+  --foreground: 40 33% 98%;
+  
+  --popover: 220 20% 15%;
+  --popover-foreground: 40 33% 98%;
+  
+  --primary: 43 74% 49%;
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 165 49% 35%; 
+  --secondary-foreground: 0 0% 100%;
+  
+  --muted: 220 20% 15%;
+  --muted-foreground: 40 10% 70%;
+  
+  --accent: 215 50% 35%;
+  --accent-foreground: 0 0% 100%;
+  
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 0 0% 98%;
+  
+  --border: 220 20% 20%;
+  --input: 220 20% 20%;
+  --ring: 43 74% 49%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight text-secondary;
+  }
+  
+  /* Apply Arabic font for RTL/Arabic text */
+  .arabic-text {
+    font-family: var(--font-arabic);
+  }
+}
+
+/* Custom Scrollbar for a premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
+}
+
+/* Gold Gradient Text */
+.text-gradient-gold {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-amber-300;
+}
